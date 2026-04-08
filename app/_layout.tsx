@@ -5,7 +5,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
-import { colors } from "../src/utils/theme";
+import { colors } from "../src/constants/theme";
 
 const screenOptions = {
   contentStyle: {
@@ -23,7 +23,7 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <StatusBar style="dark" />
       <Stack screenOptions={screenOptions}>
-        <Stack.Screen name="index" options={{ title: "Products" }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen
           name="products/[id]"
           options={{ title: "Product Details" }}

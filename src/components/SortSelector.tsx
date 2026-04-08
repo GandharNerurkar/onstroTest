@@ -2,7 +2,7 @@ import React, { memo, useMemo, useState } from 'react';
 import { Modal, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import type { SortOption } from '../types/filter';
-import { colors, radius, spacing } from '../utils/theme';
+import { colors, radius, spacing } from "../constants/theme";
 
 const SORT_LABELS: Record<SortOption, string> = {
   PRICE_ASC: 'Price: Low to High',

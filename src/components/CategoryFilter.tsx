@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { FlatList, ListRenderItem, Pressable, StyleSheet, Text } from 'react-native';
 
 import type { ProductCategory } from '../types/product';
-import { colors, radius, spacing } from '../utils/theme';
+import { colors, radius, spacing } from "../constants/theme";
 
 interface CategoryFilterProps {
   categories: ProductCategory[];

@@ -1,6 +1,7 @@
 import { useRouter } from "expo-router";
 import React, { useCallback, useMemo, useState } from "react";
 import { FlatList, ListRenderItem, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import { CategoryFilter } from "../components/CategoryFilter";
 import { FeedbackState } from "../components/FeedbackState";
@@ -13,7 +14,7 @@ import { useProductCatalog } from "../hooks/useProductCatalog";
 import type { ProductFilters } from "../types/filter";
 import type { Product } from "../types/product";
 import { applyProductFilters } from "../utils/productHelpers";
-import { colors, spacing } from "../utils/theme";
+import { colors, spacing } from "../constants/theme";
 
 const INITIAL_FILTERS: ProductFilters = {
   searchQuery: "",
@@ -79,19 +80,21 @@ export function ProductListScreen() {
 
   if (errorMessage) {
     return (
-      <FeedbackState
-        title="Unable to load products"
-        message={errorMessage}
-        actionLabel="Try Again"
-        onActionPress={() => {
-          void reload();
-        }}
-      />
+      <SafeAreaView edges={["top"]} style={styles.container}>
+        <FeedbackState
+          title="Unable to load products"
+          message={errorMessage}
+          actionLabel="Try Again"
+          onActionPress={() => {
+            void reload();
+          }}
+        />
+      </SafeAreaView>
     );
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={["top"]} style={styles.container}>
       <View style={styles.controls}>
         <SearchBar
           value={filters.searchQuery}
@@ -128,7 +131,7 @@ export function ProductListScreen() {
           </Text>
         }
       />
-    </View>
+    </SafeAreaView>
   );
 }
 

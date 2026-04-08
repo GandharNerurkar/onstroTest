@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 
-import { colors } from '../utils/theme';
+import { colors } from "../constants/theme";
 
 function LoaderComponent() {
   return (

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { colors, radius, spacing } from '../utils/theme';
+import { colors, radius, spacing } from "../constants/theme";
 
 interface FeedbackStateProps {
   title: string;

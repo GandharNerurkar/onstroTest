@@ -4,7 +4,7 @@ import { Image } from 'expo-image';
 
 import type { Product } from '../types/product';
 import { formatPrice } from '../utils/formatters';
-import { colors, radius, spacing } from '../utils/theme';
+import { colors, radius, spacing } from "../constants/theme";
 
 interface ProductCardProps {
   product: Product;
