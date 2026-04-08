@@ -4,17 +4,37 @@
 
 ```text
 .
-|-- App.tsx
-|-- app.json
-|-- assets/
-|-- src/
-|   |-- components/
-|   |-- hooks/
-|   |-- navigation/
-|   |-- screens/
-|   |-- services/
-|   |-- types/
-|   |-- utils/
+onstroTest/
+├─ app/
+│  ├─ _layout.tsx
+│  ├─ +not-found.tsx
+│  ├─ (tabs)/
+│  │  ├─ _layout.tsx
+│  │  └─ index.tsx
+│  └─ products/
+│     └─ [id].tsx
+├─ assets/
+│  └─ images/
+├─ src/
+│  ├─ components/
+│  ├─ constants/
+│  ├─ hooks/
+│  ├─ screens/
+│  ├─ services/
+│  ├─ types/
+│  └─ utils/
+├─ scripts/
+├─ .env
+├─ .env.example
+├─ app.json
+├─ babel.config.js
+├─ eslint.config.js
+├─ expo-env.d.ts
+├─ package.json
+├─ package-lock.json
+├─ README.md
+└─ tsconfig.json
+
 ```
 
 ## API Endpoints
