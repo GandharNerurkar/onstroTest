@@ -24,5 +24,6 @@
 
 ## Scripts
 
-- `npm start`: start Expo
-- `npm run android`: open on Android
+- `npm install`: Install dependencies
+- `npm start`: Start the app
+- `npm run android`: Run on Android
