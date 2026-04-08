@@ -1,15 +1,15 @@
-import React from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import { Image } from 'expo-image';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Image } from "expo-image";
+import React from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-import type { RootStackParamList } from '../types/navigation';
-import { formatPrice } from '../utils/formatters';
-import { colors, radius, spacing } from '../utils/theme';
+import type { RootStackParamList } from "../types/navigation";
+import { formatPrice } from "../utils/formatters";
+import { colors, radius, spacing } from "../utils/theme";
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ProductDetail'>;
+type Props = NativeStackScreenProps<RootStackParamList, "ProductDetail">;
 
-const BLURHASH_PLACEHOLDER = 'L6PZfSi_.AyE_3t7t7R**0o#DgR4';
+const BLURHASH_PLACEHOLDER = "L6PZfSi_.AyE_3t7t7R**0o#DgR4";
 
 export function ProductDetailScreen({ route }: Props) {
   const { product } = route.params;
@@ -29,6 +29,9 @@ export function ProductDetailScreen({ route }: Props) {
 
       <View style={styles.summary}>
         <Text style={styles.category}>{product.category}</Text>
+        <Text
+          style={styles.rating}
+        >{`Rating: ${product.rating.rate} (${product.rating.count} reviews)`}</Text>
         <Text style={styles.title}>{product.title}</Text>
         <Text style={styles.price}>{formatPrice(product.price)}</Text>
       </View>
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
   },
   imageContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     backgroundColor: colors.surface,
     borderRadius: radius.lg,
     marginBottom: spacing.lg,
@@ -58,7 +61,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: 320,
-    width: '100%',
+    width: "100%",
   },
   summary: {
     backgroundColor: colors.surface,
@@ -70,19 +73,19 @@ const styles = StyleSheet.create({
   category: {
     color: colors.textSecondary,
     fontSize: 13,
-    fontWeight: '700',
-    textTransform: 'uppercase',
+    fontWeight: "700",
+    textTransform: "uppercase",
   },
   title: {
     color: colors.textPrimary,
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: "700",
     lineHeight: 32,
   },
   price: {
     color: colors.accent,
     fontSize: 28,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   section: {
     backgroundColor: colors.surface,
@@ -92,8 +95,13 @@ const styles = StyleSheet.create({
   sectionTitle: {
     color: colors.textPrimary,
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: "700",
     marginBottom: spacing.sm,
+  },
+  rating: {
+    color: colors.textSecondary,
+    fontSize: 14,
+    fontWeight: "500",
   },
   description: {
     color: colors.textSecondary,

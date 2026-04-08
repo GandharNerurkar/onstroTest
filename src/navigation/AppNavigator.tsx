@@ -1,4 +1,5 @@
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import type { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 
@@ -21,9 +22,9 @@ const navigationTheme = {
   },
 };
 
-const screenOptions = {
-  headerBackTitleVisible: false,
+const screenOptions: NativeStackNavigationOptions = {
   headerShadowVisible: false,
+  headerBackButtonDisplayMode: "minimal",
   headerTitleStyle: {
     fontWeight: "700" as const,
   },
