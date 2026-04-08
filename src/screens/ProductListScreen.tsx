@@ -1,4 +1,4 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useRouter } from "expo-router";
 import React, { useCallback, useMemo, useState } from "react";
 import { FlatList, ListRenderItem, StyleSheet, Text, View } from "react-native";
 
@@ -11,12 +11,9 @@ import { SortSelector } from "../components/SortSelector";
 import { useDebounce } from "../hooks/useDebounce";
 import { useProductCatalog } from "../hooks/useProductCatalog";
 import type { ProductFilters } from "../types/filter";
-import type { RootStackParamList } from "../types/navigation";
 import type { Product } from "../types/product";
 import { applyProductFilters } from "../utils/productHelpers";
 import { colors, spacing } from "../utils/theme";
-
-type Props = NativeStackScreenProps<RootStackParamList, "ProductList">;
 
 const INITIAL_FILTERS: ProductFilters = {
   searchQuery: "",
@@ -24,7 +21,8 @@ const INITIAL_FILTERS: ProductFilters = {
   sortBy: "PRICE_ASC",
 };
 
-export function ProductListScreen({ navigation }: Props) {
+export function ProductListScreen() {
+  const router = useRouter();
   const [filters, setFilters] = useState<ProductFilters>(INITIAL_FILTERS);
   const debouncedSearchQuery = useDebounce(filters.searchQuery, 400);
   const { products, categories, isLoading, errorMessage, reload } =
@@ -60,9 +58,12 @@ export function ProductListScreen({ navigation }: Props) {
 
   const handleProductPress = useCallback(
     (product: Product) => {
-      navigation.navigate("ProductDetail", { product });
+      router.push({
+        pathname: "/products/[id]",
+        params: { id: String(product.id) },
+      });
     },
-    [navigation],
+    [router],
   );
 
   const renderItem: ListRenderItem<Product> = useCallback(

@@ -1,6 +1,6 @@
 {
   "name": "onstrotest",
-  "main": "expo/AppEntry",
+  "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
@@ -8,7 +8,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "lint": "eslint App.tsx src --ext .ts,.tsx"
+    "lint": "eslint app src eslint.config.js --ext .ts,.tsx,.js"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.3",

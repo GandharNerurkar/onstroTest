@@ -1,19 +1,18 @@
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Image } from "expo-image";
 import React from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 
-import type { RootStackParamList } from "../types/navigation";
+import type { Product } from "../types/product";
 import { formatPrice } from "../utils/formatters";
 import { colors, radius, spacing } from "../utils/theme";
 
-type Props = NativeStackScreenProps<RootStackParamList, "ProductDetail">;
+interface ProductDetailScreenProps {
+  product: Product;
+}
 
 const BLURHASH_PLACEHOLDER = "L6PZfSi_.AyE_3t7t7R**0o#DgR4";
 
-export function ProductDetailScreen({ route }: Props) {
-  const { product } = route.params;
-
+export function ProductDetailScreen({ product }: ProductDetailScreenProps) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={styles.imageContainer}>
