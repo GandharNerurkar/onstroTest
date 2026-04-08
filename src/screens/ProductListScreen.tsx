@@ -80,7 +80,7 @@ export function ProductListScreen() {
 
   if (errorMessage) {
     return (
-      <SafeAreaView edges={["top"]} style={styles.container}>
+      <SafeAreaView edges={["bottom"]} style={styles.container}>
         <FeedbackState
           title="Unable to load products"
           message={errorMessage}
@@ -94,7 +94,7 @@ export function ProductListScreen() {
   }
 
   return (
-    <SafeAreaView edges={["top"]} style={styles.container}>
+    <SafeAreaView edges={["bottom"]} style={styles.container}>
       <View style={styles.controls}>
         <SearchBar
           value={filters.searchQuery}

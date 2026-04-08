@@ -23,7 +23,7 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <StatusBar style="dark" />
       <Stack screenOptions={screenOptions}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(tabs)" options={{ title: "Products" }} />
         <Stack.Screen
           name="products/[id]"
           options={{ title: "Product Details" }}
